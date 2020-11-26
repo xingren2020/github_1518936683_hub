@@ -62,7 +62,7 @@ def hand(userRes,k):
        elif(k==10):
            if(userRes['msg']=='ok'):
               for item in userRes['data']['pageParams']['readTimeRewardTask']:
-                  if userRes['enableFlag']==1 and userRes['doneFlag']==0:
+                  if item['enableFlag']==1 and item['doneFlag']==0:
                       Av(urllist[12],hd,(k),item['seconds'])
               for item in userRes['data']['pageParams']['readTimeTask']:
                     if item['enableFlag']==1 and item['doneFlag']==0:
