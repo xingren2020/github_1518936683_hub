@@ -1,0 +1,29 @@
+name: Langdianxia
+
+on:
+  schedule:
+    - cron: '*/5 * * * * '
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+         
+      - name: 'Install requirements'
+        run: pip install -r ./Langdianxia/requirements.txt 
+        
+      - name: '电影AV' 
+        run: python3 ./Langdianxia/langdianxia.py 
+        env:
+            sam_url: ${{ secrets.sam_url }}
+            sam_headers: ${{ secrets.sam_headers }}
+            sam_body0: ${{ secrets.sam_body0 }}
+            sam_body1: ${{ secrets.sam_body1 }}
