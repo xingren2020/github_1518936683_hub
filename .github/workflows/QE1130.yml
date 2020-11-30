@@ -1,0 +1,30 @@
+name: QE1130
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+         
+      - name: 'Install requirements'
+        run: pip install -r ./Qrd/requirements.txt 
+        
+      - name: '公众号iosrule' 
+        run: python3 ./Qrd/QE1130.py 
+        env:
+            DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
+            DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
+            ios_url1130: ${{ secrets.ios_url1130 }}
+            ios_hd1130: ${{ secrets.ios_hd1130 }}
+            ios_bt1130: ${{ secrets.ios_bt1130 }}
