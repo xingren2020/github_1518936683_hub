@@ -125,8 +125,8 @@ def clock(func):
 @clock
 def start():
    global result,hd
-   watch('ios_url1130',urllist)
-   watch('ios_hd1130',hdlist)
+   watch('ios_url',urllist)
+   watch('ios_hd',hdlist)
    watch('ios_bt1130',btlist)
    time.sleep(random.randint(1,4))
    for j in range(len(btlist)):
