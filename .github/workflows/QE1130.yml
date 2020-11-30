@@ -25,6 +25,6 @@ jobs:
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
-            ios_url1130: ${{ secrets.ios_url1130 }}
-            ios_hd1130: ${{ secrets.ios_hd1130 }}
+            ios_url: ${{ secrets.ios_url }}
+            ios_hd: ${{ secrets.ios_hd }}
             ios_bt1130: ${{ secrets.ios_bt1130 }}
