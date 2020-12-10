@@ -21,7 +21,7 @@ jobs:
         run: pip install -r ./Qrd/requirements.txt 
         
       - name: '公众号iosrule' 
-        run: python3 ./story/story_update.py
+        run: python3 ./Story/story_update.py
         env:
             car_url: ${{ secrets.car_url }}
             car_hd: ${{ secrets.car_hd }}
