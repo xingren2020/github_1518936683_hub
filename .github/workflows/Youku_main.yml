@@ -1,4 +1,4 @@
-name: Langdianxia
+name: Youku_main
 
 on:
   schedule:
@@ -18,10 +18,10 @@ jobs:
           python-version: 3.7
          
       - name: 'Install requirements'
-        run: pip install -r ./Langdianxia/requirements.txt 
+        run: pip install -r ./Youku/requirements.txt 
         
       - name: '电影AV' 
-        run: python3 ./Langdianxia/langdianxia.py 
+        run: python3 ./Youku/Youku_main.py 
         env:
             sam_url: ${{ secrets.sam_url }}
             sam_headers: ${{ secrets.sam_headers }}
