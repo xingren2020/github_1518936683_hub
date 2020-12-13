@@ -68,7 +68,7 @@ def start():
        for k in range(len(urllist)):
           if(k==2):
              continue
-          Av(urllist[k],hdlist[0],bdlist[k],(k+1))
+          Av(urllist[k],hdlist[0],bdlist[0],(k+1))
        time.sleep(random.randint(1,3))
    print('🔔'*15)
    
