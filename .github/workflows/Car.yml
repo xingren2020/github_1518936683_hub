@@ -21,10 +21,20 @@ jobs:
         run: pip install -r ./Qrd/requirements.txt 
         
       - name: '公众号iosrule' 
-        run: python3 ./Car/car.py 
+        run: python3 ./Car/Car.py 
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
             car_url: ${{ secrets.car_url }}
             car_hd: ${{ secrets.car_hd }}
-            car_bt: ${{ secrets.car_bt }}
+            car_bt0: ${{ secrets.car_bt0 }}
+            car_bt1: ${{ secrets.car_bt1 }}
+            car_bt2: ${{ secrets.car_bt2 }}
+            car_bt3: ${{ secrets.car_bt3 }}
+            car_bt4: ${{ secrets.car_bt4 }}
+            car_bt5: ${{ secrets.car_bt5 }}
+            car_bt6: ${{ secrets.car_bt6 }}
+            car_bt7: ${{ secrets.car_bt7 }}
+            car_bt8: ${{ secrets.car_bt8 }}
+            car_bt9: ${{ secrets.car_bt9 }}
+                        
