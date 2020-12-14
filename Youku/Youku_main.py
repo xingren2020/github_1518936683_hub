@@ -88,7 +88,7 @@ def pushmsg(title,txt,bflag=1,wflag=1):
       body=f'''text={txt})&desp={title}'''
       response = requests.post(purl,headers=headers,data=body)
    global result
-   print(result)
+   #print(result)
    result =''
     
 def loger(m):
