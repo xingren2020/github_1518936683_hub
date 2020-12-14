@@ -2,7 +2,7 @@ name: Youku_main
 
 on:
   schedule:
-    - cron: '*/5 * * * * '
+    - cron: '*/10 * * * * '
   watch:
     types: [started]
 jobs:
