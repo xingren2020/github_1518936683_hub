@@ -1,17 +1,24 @@
 import requests
 import os
-import re
 import json
 import random
+import urllib
 import time
+from datetime import datetime
+from dateutil import tz
 osenviron={}
+djj_bark_cookie=''
+djj_sever_jiang=''
+
 
 urllist=[]
 hdlist=[]
 bdlist=[]
-
+result=''
+ID=''
 def Av(i,hd,j,k):
     print('=🔔='*k)
+    global ID
     try:
       
        response = requests.post(i,headers=eval(hd),data=j)
@@ -25,17 +32,29 @@ def Av(i,hd,j,k):
            if(json.dumps(item).find('get_coin')>0):
              
              if(item['status']==2):
-               Av(urllist[2],hdlist[0],bdlist[2],3)
+               Av(urllist[2],hdlist[0],bdlist[0],3)
        elif(k==3):
           print(Res['msg'])
+       elif(k==5):
+       	    #print(Res['data']['score'])
+       	    loger(ID+'---'+Res['data']['score'])
        elif(k==4):
-       	     print(Res['data']['score'])
+          for item in Res['data']['items']:
+           if 'auth' in item.keys():
+             ID=item['auth']['nickname']
     except Exception as e:
       print(str(e))
 
 
 def watch(flag,list):
    vip=''
+   print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
+   global djj_bark_cookie
+   global djj_sever_jiang
+   if "DJJ_BARK_COOKIE" in os.environ:
+     djj_bark_cookie = os.environ["DJJ_BARK_COOKIE"]
+   if "DJJ_SEVER_JIANG" in os.environ:
+      djj_sever_jiang = os.environ["DJJ_SEVER_JIANG"]
    if flag in osenviron:
       vip = osenviron[flag]
    if flag in os.environ:
@@ -48,10 +67,35 @@ def watch(flag,list):
        return list
    else:
        print(f'''【{flag}】 is empty,DTask is over.''')
+       pushmsg('Youku',result)
        exit()
        
 
-
+def pushmsg(title,txt,bflag=1,wflag=1):
+   txt=urllib.parse.quote(txt)
+   title=urllib.parse.quote(title)
+   if bflag==1 and djj_bark_cookie.strip():
+      print("\n【通知汇总】")
+      purl = f'''https://api.day.app/{djj_bark_cookie}/{title}/{txt}'''
+      response = requests.post(purl)
+      #print(response.text)
+   if wflag==1 and djj_sever_jiang.strip():
+      print("\n【微信消息】")
+      purl = f'''http://sc.ftqq.com/{djj_sever_jiang}.send'''
+      headers={
+    'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+    }
+      body=f'''text={txt})&desp={title}'''
+      response = requests.post(purl,headers=headers,data=body)
+   global result
+   print(result)
+   result =''
+    
+def loger(m):
+   #print(m)
+   global result
+   result +=m+'\n'
+    
 
 
 def start():
@@ -60,9 +104,12 @@ def start():
    watch('sam_url',urllist)
    watch('sam_headers',hdlist)
    for j in range(10):
-       print('====count===='+str(j))
+       print('====count===='+str(j+1))
+       #if(j<2):
+         #continue
        bdlist=[]
        watch('sam_body'+str(j),bdlist)
+       #print(bdlist)
        if(len(bdlist)==0):
             break
        for k in range(len(urllist)):
@@ -70,6 +117,7 @@ def start():
              continue
           Av(urllist[k],hdlist[0],bdlist[0],(k+1))
        time.sleep(random.randint(1,3))
+   
    print('🔔'*15)
    
    
