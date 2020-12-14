@@ -41,7 +41,7 @@ def Av(i,hd,j,k):
        elif(k==4):
           for item in Res['data']['items']:
            if 'auth' in item.keys():
-             ID=item['auth']['nickname']
+             ID=f'''{item['auth']['nickname']}_{item['auth']['auth_id']}'''
     except Exception as e:
       print(str(e))
 
