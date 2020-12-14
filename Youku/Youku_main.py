@@ -25,23 +25,23 @@ def Av(i,hd,j,k):
        Res=response.json()
        #print(Res)
        if(k==1):
-           print(Res['msg'])
+           print(Res['code'])
        elif(k==2):
-         print(Res['msg'])
+         print(Res['code'])
          for item in Res['data']['task_list']:
            if(json.dumps(item).find('get_coin')>0):
              
              if(item['status']==2):
                Av(urllist[2],hdlist[0],bdlist[0],3)
-       elif(k==3):
-          print(Res['msg'])
-       elif(k==5):
-       	    #print(Res['data']['score'])
-       	    loger(ID+'---'+Res['data']['score'])
-       elif(k==4):
+       elif(k==3 or k==4 or k==5):
+          print(Res['code'])
+       elif(k==6):
           for item in Res['data']['items']:
            if 'auth' in item.keys():
              ID=f'''{item['auth']['nickname']}_{item['auth']['auth_id']}'''
+          Av(urllist[k]+str(item['auth']['auth_id']),hdlist[0],bdlist[0],(k+1))
+       elif(k==7):
+       	    loger(f'''{ID}-{Res['data']['score']}/{Res['data']['total_score']}''')
     except Exception as e:
       print(str(e))
 
@@ -113,10 +113,11 @@ def start():
        if(len(bdlist)==0):
             break
        for k in range(len(urllist)):
-          if(k==2):
+          if(k==2 or k==6):
              continue
           Av(urllist[k],hdlist[0],bdlist[0],(k+1))
-       time.sleep(random.randint(1,3))
+          time.sleep(random.randint(1,4))
+       time.sleep(random.randint(1,4))
    
    print('🔔'*15)
    
