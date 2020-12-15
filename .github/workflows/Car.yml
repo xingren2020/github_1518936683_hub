@@ -2,7 +2,7 @@ name: Car
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/15 * * * *'
   watch:
     types: [started]
 jobs:
