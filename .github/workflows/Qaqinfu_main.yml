@@ -26,7 +26,7 @@ jobs:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
             KS_url: ${{ secrets.KS_url }}
-            KS_headers: ${{ secrets.KS_headers }}
+            KS_headers_main: ${{ secrets.KS_headers_main }}
             KS_cookies0: ${{ secrets.KS_cookies0 }}
             KS_cookies1: ${{ secrets.KS_cookies1 }}
             KS_cookies2: ${{ secrets.KS_cookies2 }}
