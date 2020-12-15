@@ -93,8 +93,8 @@ def start():
      print('over...........')
      exit()
    hd=eval(hdlist[0])
-   T=datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H", )
-   if(int(T)<12):
+   T=int(datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H", ))
+   if(T<12):
      for k in range(T%6*30,T%6*30+30):
        Va(urllist[k],hd,bdlist[0],k+1)
        time.sleep(random.randint(20,25))
