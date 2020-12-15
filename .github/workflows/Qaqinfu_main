@@ -1,0 +1,39 @@
+name: Daqinfu_main
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+         
+      - name: 'Install requirements'
+        run: pip install -r ./Daqinfu/requirements.txt 
+        
+      - name: '公众号iosrule' 
+        run: python3 ./Daqinfu/Daqinfu_main.py 
+        env:
+            DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
+            DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
+            KS_url: ${{ secrets.KS_url }}
+            KS_headers: ${{ secrets.KS_headers }}
+            KS_cookies0: ${{ secrets.KS_cookies0 }}
+            KS_cookies1: ${{ secrets.KS_cookies1 }}
+            KS_cookies2: ${{ secrets.KS_cookies2 }}
+            KS_cookies3: ${{ secrets.KS_cookies3 }}
+            KS_cookies4: ${{ secrets.KS_cookies4 }}
+            KS_cookies5: ${{ secrets.KS_cookies5 }}
+            KS_cookies6: ${{ secrets.KS_cookies6 }}
+            KS_cookies7: ${{ secrets.KS_cookies7 }}
+            KS_cookies8: ${{ secrets.KS_cookies8 }}
+            KS_cookies9: ${{ secrets.KS_cookies9 }}
