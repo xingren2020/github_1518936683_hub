@@ -1,0 +1,30 @@
+name: Daqinfu_sub
+
+on:
+  schedule:
+    - cron: '1 22,23,0-1 * * *'
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+         
+      - name: 'Install requirements'
+        run: pip install -r ./Daqinfu/requirements.txt 
+        
+      - name: '公众号iosrule' 
+        run: python3 ./Daqinfu/Daqinfu_sub.py 
+        env:
+            KS_0url0: ${{ secrets.KS_0url0 }}
+            KS_0url1: ${{ secrets.KS_0url1 }}
+            KS_0url2: ${{ secrets.KS_0url2 }}
+            KS_0headers_sub: ${{ secrets.KS_0headers_sub }}
+            KS_0body: ${{ secrets.KS_0body }}
