@@ -109,7 +109,7 @@ def start():
    watch('car_url',urllist)
    watch('car_hd',hdlist)
    btlist=[]
-   print('====count===='+str(j))
+   print('====count====1')
    watch('car_bt0',btlist)
  
    for j in range(30):
