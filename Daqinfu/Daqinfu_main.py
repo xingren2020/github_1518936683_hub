@@ -88,7 +88,7 @@ def start():
    global cklist,urllist,hdlist
    time.sleep(random.randint(1,5))
    watch('KS_url',urllist)
-   watch('KS_headers',hdlist)
+   watch('KS_headers_main',hdlist)
    for j in range(10):
        print('====count===='+str(j+1))
        bdlist=[]
