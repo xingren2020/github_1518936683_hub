@@ -77,7 +77,7 @@ def start():
        if(len(hdlist)==0):
             break
        Av(urllist[0],hdlist[j],(j+1))
-       time.sleep(random.randint(1,3))
+       time.sleep(random.randint(10,15))
    print('🔔'*15)
    
    
