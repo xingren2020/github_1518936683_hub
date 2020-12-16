@@ -1,0 +1,39 @@
+name: Newdj2020
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+         
+      - name: 'Install requirements'
+        run: pip install -r ./Newdj/requirements.txt 
+        
+      - name: '公众号iosrule' 
+        run: python3 ./Newdj/dj2020.py 
+        env:
+            DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
+            DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
+            dj2020_key: ${{ secrets.dj2020_key }}
+            dj2020_header: ${{ secrets.dj2020_header }}
+            dj2020_url0: ${{ secrets.dj2020_url0 }}
+            dj2020_url1: ${{ secrets.dj2020_url1 }}
+            dj2020_url2: ${{ secrets.dj2020_url2 }}
+            dj2020_url3: ${{ secrets.dj2020_url3 }}
+            dj2020_url4: ${{ secrets.dj2020_url4 }}
+            dj2020_url5: ${{ secrets.dj2020_url5 }}
+            dj2020_url6: ${{ secrets.dj2020_url6 }}
+            dj2020_url7: ${{ secrets.dj2020_url7 }}
+            dj2020_url8: ${{ secrets.dj2020_url8 }}
+            dj2020_url9: ${{ secrets.dj2020_url9 }}
