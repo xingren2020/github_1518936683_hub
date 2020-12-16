@@ -2,7 +2,7 @@ name: Daqinfu_main
 
 on:
   schedule:
-    - cron: '5 23,4 * * *'
+    - cron: '5 22,0,4 * * *'
   watch:
     types: [started]
 jobs:
