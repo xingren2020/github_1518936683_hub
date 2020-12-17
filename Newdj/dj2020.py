@@ -37,7 +37,7 @@ def Av(i,key,hd,k):
         i=i+key+'&vid=127&addNum=20'
       response = requests.get(i,headers=eval(hd))
       Res=response.text
-      print(Res)
+      #print(Res)
       if(k==10):
          Res=response.json()
          msg=Res['body']['userInfo']['userNick']+'_'+str(Res['body']['gold']['goldAmount'])
