@@ -125,7 +125,7 @@ def start():
        urllist=[]
        hdlist=[]
        keylist=[]
-       j+=1
+       #j+=1
        watch('dj2020_url'+str(j),urllist)
        watch('dj2020_header',hdlist)
        watch('dj2020_key',keylist)
