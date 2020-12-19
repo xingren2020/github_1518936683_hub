@@ -70,18 +70,19 @@ def start():
    global bdlist,urllist,hdlist
    time.sleep(random.randint(1,5))
    watch('sam_newurl',urllist)
-   for j in range(10):
+   for j in range(8):
+     for j in range(10):
        print('====count===='+str(j))
        bdlist=[]
        watch('sam_newheader'+str(j),hdlist)
        if(len(hdlist)==0):
             break
        Av(urllist[0],hdlist[j],(j+1))
-       time.sleep(random.randint(10,15))
+       time.sleep(1)
+     time.sleep(random.randint(180,200))
    print('🔔'*15)
    
    
 
 if __name__ == '__main__':
        start()
-    
