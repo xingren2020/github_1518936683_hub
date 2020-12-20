@@ -1,4 +1,3 @@
-
 import requests
 import os
 import re
@@ -9,8 +8,8 @@ import random
 import urllib
 from datetime import datetime
 result=''
-djj_bark_cookie=''
-djj_sever_jiang=''
+djj_bark_cookie='azjFQzUeTG5hVYx7cRJRTU'
+djj_sever_jiang='SCU124498Teba646995bd06b3e0bb128138c7f06ac5fa7952a4ab92'
 
 
 osenviron={}
@@ -25,7 +24,7 @@ def Av(i,hd,k,key=''):
    print(str(k)+'=🔔='*k)
    try:
      response = requests.post(i,headers=hd,data=key,timeout=10)
-     #print(response.text)
+    #print(response.text)
      userRes=json.loads(response.text)
      hand(userRes,k)
    except Exception as e:
@@ -51,7 +50,7 @@ def watch(flag,list):
        return list
    else:
        print(f'''【{flag}】 is empty,DTask is over.''')
-       exit()
+       #exit()
 def hand(userRes,k):
    msg=''
    if(k==len(urllist)):
@@ -108,23 +107,25 @@ def start():
    time.sleep(random.randint(1,5))
    watch('car_url',urllist)
    watch('car_hd',hdlist)
-   btlist=[]
-   print('====count====1')
-   watch('car_bt0',btlist)
- 
-   for j in range(30):
-     hd=eval(hdlist[0])
-     if(len(btlist)==0):
-          break
-     for k in range(len(urllist)):
+   if(len(hdlist)==0):
+          exit()
+   for t in range(30):
+     for j in range(10):
+       time.sleep(random.randint(1,3))
+       btlist=[]
+       print('====count===='+str(j))
+       watch('car_bt'+str(j),btlist)
+       if(len(btlist)==0):
+            continue
+       hd=eval(hdlist[0])
+       for k in range(len(urllist)):
          if(btlist[k]=='xx'):
-           
            continue
          Av(urllist[k],hd,(k+1),btlist[k])
-     print(str(j+1)+'💎'*15+'干就完了')
-     time.sleep(random.randint(20,25))
+         time.sleep(random.randint(2,5))
+     print(str(j)+'💎'*15+'干就完了')
 
- 
+
 if __name__ == '__main__':
        start()
     
