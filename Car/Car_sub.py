@@ -92,9 +92,9 @@ def clock(func):
 @clock
 def start():
    global result
-   watch('car_suburl',urllist)
    watch('car_subhd',hdlist)
    watch('car_subbt',btlist)
+   watch('car_suburl',urllist)
    for j in range(len(btlist)):
        print(f'''===={str(j)}({len(btlist)})''')
        hd=eval(hdlist[0])
