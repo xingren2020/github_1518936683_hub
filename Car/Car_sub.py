@@ -21,7 +21,7 @@ def Av(i,hd,k,key):
    print(str(k)+'=🔔='*k)
    try:
      response = requests.post(i,headers=hd,data=key,timeout=10)
-     print(response.text)
+     #print(response.text)
    except Exception as e:
       print(str(e))
 
