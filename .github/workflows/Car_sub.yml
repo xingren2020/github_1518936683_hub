@@ -21,9 +21,8 @@ jobs:
         run: pip install -r ./Qrd/requirements.txt 
         
       - name: '公众号iosrule' 
-        run: python3 ./Car/Car_sub.py 
+        run: python3 ./Car/Car_sub.py
         env:
             car_suburl: ${{ secrets.car_suburl }}
             car_subhd: ${{ secrets.car_subhd }}
             car_subbt: ${{ secrets.car_subbt }}
- 
