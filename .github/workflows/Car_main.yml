@@ -1,8 +1,8 @@
-name: Car
+name: Car_main
 
 on:
   schedule:
-    - cron: '*/20 * * * *'
+    - cron: '*/40 * * * *'
   watch:
     types: [started]
 jobs:
