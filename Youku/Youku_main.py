@@ -116,11 +116,11 @@ def start():
           if(k==2 or k==6):
              continue
           Av(urllist[k],hdlist[0],bdlist[0],(k+1))
-          time.sleep(random.randint(1,4))
+          time.sleep(random.randint(2,4))
        time.sleep(random.randint(1,4))
    
    print('🔔'*15)
-   
+   pushmsg('Youku',result)
    
 
 if __name__ == '__main__':
