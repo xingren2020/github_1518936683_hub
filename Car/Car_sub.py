@@ -27,6 +27,8 @@ def Av(i,hd,k,key):
 
 def watch(flag,list):
    vip=''
+   if flag in os.environ:
+      vip = os.environ[flag]
    if flag in osenviron:
       vip = osenviron[flag]
    if vip:
