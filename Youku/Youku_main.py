@@ -41,7 +41,7 @@ def Av(i,hd,j,k):
              ID=f'''{item['auth']['nickname']}_{item['auth']['auth_id']}'''
           Av(urllist[k]+str(item['auth']['auth_id']),hdlist[0],bdlist[0],(k+1))
        elif(k==7):
-       	    loger(f'''{ID}-{Res['data']['score']}/{Res['data']['today_score']}''')
+       	    loger(f'''{ID}@{Res['data']['score']}${Res['data']['today_score']}''')
     except Exception as e:
       print(str(e))
 
