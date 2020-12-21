@@ -38,10 +38,10 @@ def Av(i,hd,j,k):
        elif(k==6):
           for item in Res['data']['items']:
            if 'auth' in item.keys():
-             ID=f'''{item['auth']['nickname']}_{item['auth']['auth_id']}'''
+             ID=f'''【{item['auth']['auth_id']}】{item['auth']['nickname'][0:3]}'''
           Av(urllist[k]+str(item['auth']['auth_id']),hdlist[0],bdlist[0],(k+1))
        elif(k==7):
-       	    loger(f'''{ID}@{Res['data']['score']}${Res['data']['today_score']}''')
+       	    loger(f'''{ID}|{Res['data']['score']}|{Res['data']['today_score']/10000}''')
     except Exception as e:
       print(str(e))
 
