@@ -125,7 +125,7 @@ def start():
            continue
          Av(urllist[k],hd,(k+1),btlist[k])
          time.sleep(random.randint(2,5))
-     print(str(j)+'💎'*15+'干就完了')
+     print('Rond【'+str(t)+'】💎'+'干就完了')
    pushmsg('Car',result)
 
 
