@@ -8,8 +8,8 @@ import random
 import urllib
 from datetime import datetime
 result=''
-djj_bark_cookie='azjFQzUeTG5hVYx7cRJRTU'
-djj_sever_jiang='SCU124498Teba646995bd06b3e0bb128138c7f06ac5fa7952a4ab92'
+djj_bark_cookie=''
+djj_sever_jiang=''
 
 
 osenviron={}
