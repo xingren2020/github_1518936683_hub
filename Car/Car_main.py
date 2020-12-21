@@ -55,9 +55,10 @@ def hand(userRes,k):
    msg='【'+str(k)+'】'
    if(k==len(urllist)):
      msg+=f'''{userRes['result']['nowcoin']}'''
+     loger(msg)
    else:
-     msg+=f'''{userRes['message']}'''
-   loger(msg)             
+     msg=f'''{userRes['message']}'''
+     print(msg)
 def pushmsg(title,txt,bflag=1,wflag=1):
    txt=urllib.parse.quote(txt)
    title=urllib.parse.quote(title)
@@ -109,7 +110,7 @@ def start():
    watch('car_hd',hdlist)
    if(len(hdlist)==0):
           exit()
-   for t in range(10):
+   for t in range(30):
      result=''
      for j in range(10):
        time.sleep(random.randint(1,3))
