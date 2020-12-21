@@ -52,7 +52,7 @@ def watch(flag,list):
        print(f'''【{flag}】 is empty,DTask is over.''')
        #exit()
 def hand(userRes,k):
-   msg=''
+   msg='【'+str(k)+'】'
    if(k==len(urllist)):
      msg+=f'''{userRes['result']['nowcoin']}'''
    else:
@@ -78,7 +78,7 @@ def pushmsg(title,txt,bflag=1,wflag=1):
 def loger(m):
    print(m)
    global result
-   result +=m                
+   result +=m+'\n'                
 def notice(b,e):
     ll=False
     start_time = datetime.strptime(str(datetime.now().date())+b, '%Y-%m-%d%H:%M')
@@ -110,6 +110,7 @@ def start():
    if(len(hdlist)==0):
           exit()
    for t in range(30):
+     result=''
      for j in range(10):
        time.sleep(random.randint(1,3))
        btlist=[]
@@ -124,6 +125,7 @@ def start():
          Av(urllist[k],hd,(k+1),btlist[k])
          time.sleep(random.randint(2,5))
      print(str(j)+'💎'*15+'干就完了')
+   pushmsg('Car',result)
 
 
 if __name__ == '__main__':
