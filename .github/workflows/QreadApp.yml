@@ -1,4 +1,4 @@
-name: Rdapp
+name: QreadApp
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
         run: pip install -r ./Qrd/requirements.txt 
         
       - name: '公众号iosrule' 
-        run: python3 ./Rdapp/Rdapp.py 
+        run: python3 ./Rdapp/QreadApp.py 
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
