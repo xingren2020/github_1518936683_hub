@@ -56,11 +56,11 @@ def hand(userRes,k):
    global redtm
    if(userRes['code']==0):
        if(k==1):
-           msg+=f'''{userRes['data']['user']['nickName']}[0:4]'''
+           msg+=f'''{userRes['data']['user']['nickName'][0:4]}'''
        elif(k==2):
             msg+=f'''|{userRes['data']['user']['amount']}'''
        elif(k==3):
-             msg+=f'''|{userRes['data']['readTime']}min-{userRes['data']['balance']['allBalance']}'''
+             msg+=f'''|{userRes['data']['readTime']}min'''
        elif(k==10):
            if(userRes['msg']=='ok'):
               for item in userRes['data']['pageParams']['readTimeRewardTask']:
@@ -128,8 +128,10 @@ def start():
    watch('ios_url',urllist)
    watch('ios_hd',hdlist)
    watch('ios_bt',btlist)
-   time.sleep(random.randint(1,4))
-   for j in range(len(btlist)):
+   for ios in range(2):
+     result=''
+     time.sleep(random.randint(1,4))
+     for j in range(len(btlist)):
        print(f'''===={str(j)}({len(urllist)})''')
        hd=eval(hdlist[0])
        hd['Cookie']=btlist[j]
@@ -139,8 +141,8 @@ def start():
          Av(urllist[k],hd,(k+1))
        print(str(j)+'💎'*15+'干就完了')
        result+='\n'
+       time.sleep(300)
    if notice('4:00','5:00') or notice('22:00','23:00') or notice('13:00','14:00'):
-       pushmsg('1518938893-read',result)
+     pushmsg('1518936683库-qread',result)
 if __name__ == '__main__':
        start()
-    
