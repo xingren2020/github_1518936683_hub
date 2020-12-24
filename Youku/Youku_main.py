@@ -103,7 +103,8 @@ def start():
    time.sleep(random.randint(1,5))
    watch('sam_url',urllist)
    watch('sam_headers',hdlist)
-   for j in range(10):
+   for j in range(5):
+     for j in range(10):
        print('====count===='+str(j+1))
        #if(j<2):
          #continue
@@ -117,7 +118,7 @@ def start():
              continue
           Av(urllist[k],hdlist[0],bdlist[0],(k+1))
           time.sleep(random.randint(2,4))
-       time.sleep(random.randint(1,4))
+     time.sleep(random.randint(1,4))
    
    print('🔔'*15)
    pushmsg('Youku',result)
