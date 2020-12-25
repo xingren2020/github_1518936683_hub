@@ -141,7 +141,8 @@ def start():
          Av(urllist[k],hd,(k+1))
        print(str(j)+'💎'*15+'干就完了')
        result+='\n'
-       time.sleep(300)
+       time.sleep(random.randint(1,4))
+     time.sleep(300)
    if notice('4:00','5:00') or notice('22:00','23:00') or notice('13:00','14:00'):
      pushmsg('1518936683库-qread',result)
 if __name__ == '__main__':
