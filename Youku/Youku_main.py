@@ -90,7 +90,7 @@ def pushmsg(title,txt,bflag=1,wflag=1):
    global result
    #print(result)
    result =''
-    
+   
 def loger(m):
    #print(m)
    global result
@@ -99,11 +99,12 @@ def loger(m):
 
 
 def start():
-   global bdlist,urllist,hdlist
+   global bdlist,urllist,hdlist,result
    time.sleep(random.randint(1,5))
    watch('sam_url',urllist)
    watch('sam_headers',hdlist)
    for j in range(5):
+     result=''
      for j in range(10):
        print('====count===='+str(j+1))
        #if(j<2):
@@ -120,7 +121,7 @@ def start():
           time.sleep(random.randint(2,4))
        time.sleep(random.randint(1,4))
        print('🔔'*15)
-     pushmsg('Youku',result)
+   pushmsg('Youku',result)
    
 
 if __name__ == '__main__':
