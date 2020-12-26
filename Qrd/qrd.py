@@ -128,7 +128,7 @@ def start():
    watch('ios_url',urllist)
    watch('ios_hd',hdlist)
    watch('ios_bt',btlist)
-   for ios in range(2):
+   for ios in range(4):
      result=''
      time.sleep(random.randint(1,4))
      for j in range(len(btlist)):
@@ -142,7 +142,8 @@ def start():
        print(str(j)+'💎'*15+'干就完了')
        result+='\n'
        time.sleep(random.randint(1,4))
-     time.sleep(300)
+     if ios<3:
+        time.sleep(300)
    if notice('4:00','5:00') or notice('22:00','23:00') or notice('13:00','14:00'):
      pushmsg('1518936683库-qread',result)
 if __name__ == '__main__':
