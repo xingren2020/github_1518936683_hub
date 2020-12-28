@@ -145,6 +145,6 @@ def start():
      if ios<3:
         time.sleep(300)
    #if notice('4:00','5:00') or notice('22:00','23:00') or notice('13:00','14:00'):
-   pushmsg('1518936683库-qread',result)
+   #pushmsg('1518936683库-qread',result)
 if __name__ == '__main__':
        start()
