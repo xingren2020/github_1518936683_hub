@@ -35,7 +35,7 @@ def Av(i,hd,k,key='',flag=0):
         
          
       userRes=json.loads(response.text)
-      print(userRes)
+      #print(userRes)
       hand(userRes,k)
    except Exception as e:
       print(str(e))
