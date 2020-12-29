@@ -1,8 +1,8 @@
-name: qrd
+name: Bugfix1229
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/30 * * * * '
   watch:
     types: [started]
 jobs:
@@ -18,13 +18,16 @@ jobs:
           python-version: 3.7
          
       - name: 'Install requirements'
-        run: pip install -r ./Qrd/requirements.txt 
+        run: pip install -r ./Bugfix/requirements.txt 
         
       - name: '公众号iosrule' 
-        run: python3 ./Qrd/qrd.py 
+        run: python3 ./Bugfix/Coin_main.py
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
+            DJJ_TELE_COOKIE: ${{ secrets.DJJ_TELE_COOKIE }}
             ios_url: ${{ secrets.ios_url }}
-            ios_hd: ${{ secrets.ios_hd }}
-            ios_bt: ${{ secrets.ios_bt }}
+            ios_newurl: ${{ secrets.ios_newurl }}
+            ios_newhd: ${{ secrets.ios_newhd }}
+            ios_newbd: ${{ secrets.ios_newbd }}
+            ios_newbt: ${{ secrets.ios_newbt }}
