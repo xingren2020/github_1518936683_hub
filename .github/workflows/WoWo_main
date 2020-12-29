@@ -2,7 +2,7 @@ name: WoWo_main
 
 on:
   schedule:
-    - cron: '55 9 * * * '
+    - cron: '*/30 * * * * '
   watch:
     types: [started]
 jobs:
