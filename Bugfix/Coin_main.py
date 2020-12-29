@@ -152,7 +152,7 @@ def loger(m):
    #print(m)
    global result
    result +=m     
-def getid(id):
+def getid1(id):
    lll=id.split(';')
    for l in lll:
      if l.find('ywguid=')>=0:
@@ -220,7 +220,7 @@ def start():
          if(k==11 or k==12 or k==14 or k==15):
             continue
          Av(urllist[k],hd,(k+1))
-       result+=getid(btlist[j])+'\n'
+       result+=getid1(btlist[j])+'\n'
      print('第'+str(mm+1)+'🏆🏆🏆🏆次运行完毕')
      if mm<2:
        time.sleep(600)
