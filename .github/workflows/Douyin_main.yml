@@ -26,4 +26,4 @@ jobs:
             douyin_urlm: ${{ secrets.douyin_urlm }}
             douyin_tk: ${{ secrets.douyin_tk }}
             douyin_token: ${{ secrets.douyin_token }}
-            douyin_funm: ${{ secrets.ludingji_funm }}
+            douyin_funm: ${{ secrets.douyin_funm }}
