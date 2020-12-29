@@ -157,7 +157,12 @@ def getid(id):
    for l in lll:
      if l.find('ywguid=')>=0:
       return l[(l.find('ywguid=')+7):len(l)]
-   
+def getid2(id):
+   id=json.dumps(id)
+   lll=id.split(',')
+   for l in lll:
+     if l.find('guid')>=0:
+      return l[(l.find('guid')+7):len(l)]     
       
     
 def notice(b,e):
