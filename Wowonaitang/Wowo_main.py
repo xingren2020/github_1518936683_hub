@@ -24,6 +24,7 @@ bdlist=[]
 
 
 
+
 def Av(i,hd,k,key='',flag=0):
    print(str(k)+'=🔔='*k)
    try:
@@ -34,6 +35,7 @@ def Av(i,hd,k,key='',flag=0):
         
          
       userRes=json.loads(response.text)
+      print(userRes)
       hand(userRes,k)
    except Exception as e:
       print(str(e))
@@ -78,12 +80,15 @@ def hand(userRes,k):
             time.sleep(6)
             Av(urllist[0],hd,(1))
        elif(k==2):
-          msg+=f'''{userRes['result']['new_info']['repeat_count']}|{userRes['result']['new_info']['progress']}-{userRes['result']['new_info']['target']}|'''
-          print('2222',msg)
-          loopt=userRes['result']['new_info']['target']-userRes['result']['new_info']['progress']
-          time.sleep(3)
-          Av(urllist[0],hd,(1))
-          
+       	  if userRes['result']['ret_code']==0:
+              msg+=f'''{userRes['result']['new_info']['repeat_count']}|{userRes['result']['new_info']['progress']}-{userRes['result']['new_info']['target']}|'''
+              print('2222',msg)
+              loopt=userRes['result']['new_info']['target']-userRes['result']['new_info']['progress']
+              time.sleep(3)
+              Av(urllist[0],hd,(1))
+          else:
+              time.sleep(20)
+              Av(urllist[0],hd,(1))
   
    except Exception as e:
       print(str(e))
@@ -152,6 +157,7 @@ def start():
        watch('wowo_naitang_urlm'+str(j),urllist)
        watch('wowo_naitang_ckm'+str(j),btlist)
        hd['Cookie']=btlist[0]
+
        
        for k in range(len(urllist)):
           if k==1:
