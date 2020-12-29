@@ -20,7 +20,7 @@ hdlist=[]
 btlist=[]
 newurllist=[]
 redtm=0
-newbdlist=[]
+bdlist=[]
 
 def Av2(i,hd,bd,k):
    try:
