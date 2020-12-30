@@ -28,10 +28,14 @@ jobs:
             DJJ_TELE_COOKIE: ${{ secrets.DJJ_TELE_COOKIE }}
             wowo_naitang_url0: ${{ secrets.wowo_naitang_url0 }}
             wowo_naitang_ck0: ${{ secrets.wowo_naitang_ck0 }}
+            wowo_naitang_bd0: ${{ secrets.wowo_naitang_bd0 }}
             wowo_naitang_hd: ${{ secrets.wowo_naitang_hd }}
             wowo_naitang_url1: ${{ secrets.wowo_naitang_url1 }}
             wowo_naitang_ck1: ${{ secrets.wowo_naitang_ck1 }}
+            wowo_naitang_bd1: ${{ secrets.wowo_naitang_bd1 }}
             wowo_naitang_url2: ${{ secrets.wowo_naitang_url2 }}
             wowo_naitang_ck2: ${{ secrets.wowo_naitang_ck2 }}
+            wowo_naitang_bd2: ${{ secrets.wowo_naitang_bd2 }}
             wowo_naitang_url3: ${{ secrets.wowo_naitang_url3 }}
             wowo_naitang_ck3: ${{ secrets.wowo_naitang_ck3 }}
+            wowo_naitang_bd3: ${{ secrets.wowo_naitang_bd3 }}
