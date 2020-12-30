@@ -55,7 +55,7 @@ def start():
    watch('douyin_token',tokenlist)
    watch('douyin_funm',funlist)
    print(str(len(funlist)))
-   for jj in range(30):
+   for jj in range(40):
      for k in range(len(tklist)):
        print('==cccc='+str(k+1)+'===ccc=')
        hd['tk']=tklist[k]
