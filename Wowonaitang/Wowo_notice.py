@@ -22,6 +22,8 @@ hd={}
 urllist=[]
 hdlist=[]
 btlist=[]
+bdlist=[]
+
 
 
 def Av(i,hd,k,key='',flag=0):
@@ -30,11 +32,12 @@ def Av(i,hd,k,key='',flag=0):
       if flag==0:
          response = requests.get(f'''{i}{key}''',headers=hd,timeout=10)
       else:
+         
          response = requests.post(f'''{i}''',headers=hd,data=key,timeout=10)
         
          
       userRes=json.loads(response.text)
-      
+
       hand(userRes,k)
    except Exception as e:
       print(str(e))
@@ -65,23 +68,40 @@ def watch(flag,list):
        exit()
 def hand(userRes,k):
    msg=''
-   global redtm
    try:
        if(k==1):
           msg+=str(userRes['result']['money']/100)+'|'+str(userRes['result']['points'])+'|'
-          loger(msg)
+          for it in userRes['result']['points_gift_list']:
+            if it['id']==200:
+              tmp=it['limit_desc'][4:len(it['limit_desc'])-3]
+              print(tmp)
+              if int(tmp)<10:
+                for n in range(10-int(tmp)):
+                    hd['Cookie']=btlist[3]
+                    Av(urllist[5],hd,6)
+                    time.sleep(2)
+               
 
        elif(k==2):
           for it in userRes['tasks']:
              tmp=it['name']+'-'+str(it['status'])
              
              if it['status']==1:
-                url=urllist[3][0:urllist[3].find('name=')+5]+it['name']+urllist[3][urllist[3].find('&b'):len(urllist[3])]
-                print(url)
+                url=urllist[k][0:urllist[k].find('name=')+5]+it['name']+urllist[k][urllist[k].find('&b'):len(urllist[k])]
                 Av(url,hd,(k+1))
                 time.sleep(1)
 
-       
+       elif(k==4):
+          if userRes['result'][0]['isSign']==0:
+              hd['Cookie']=btlist[2]
+              hd['Content-Type']='application/x-www-form-urlencoded'
+              msg+='signing......'
+              Av(urllist[k],hd,(k+1),bdlist[1],1)
+          elif userRes['result'][0]['isSign']==1:
+              msg+='signed'
+       elif(k==6):
+          print(str(userRes['result']['amount']))
+       loger(msg)
    except Exception as e:
       print(str(e))
       
@@ -142,7 +162,7 @@ def clock(func):
     
 @clock
 def start():
-   global result,hd,btlist,urllist,hdlist
+   global result,hd,btlist,urllist,hdlist,bdlist
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
    watch('wowo_naitang_hd',hdlist)
    hd=eval(hdlist[0])
@@ -152,12 +172,21 @@ def start():
        btlist=[]
        watch('wowo_naitang_url'+str(j),urllist)
        watch('wowo_naitang_ck'+str(j),btlist)
-       hd['Cookie']=btlist[j]
+       watch('wowo_naitang_bd'+str(j),bdlist)
+
        
        for k in range(len(urllist)):
-          if k==2:
+          if k==0:
+              hd['Cookie']=btlist[0]
+          if k==2 or k==4 or k==5:
               continue
-          Av(urllist[k],hd,(k+1))
+          
+          if(k==3):
+              hd['Cookie']=btlist[1]
+              hd['Content-Type']='application/json'
+              Av(urllist[k],hd,(k+1),bdlist[0],1)
+          else:
+            Av(urllist[k],hd,(k+1))
    print('🏆🏆🏆🏆运行完毕')
    pushmsg('喔喔奶糖',result)
     
