@@ -55,14 +55,14 @@ def start():
    watch('douyin_token',tokenlist)
    watch('douyin_funm',funlist)
    print(str(len(funlist)))
-   for jj in range(40):
+   for jj in range(35):
      for k in range(len(tklist)):
        print('==cccc='+str(k+1)+'===ccc=')
        hd['tk']=tklist[k]
        hd['token']=tokenlist[k]
        ludingji(urllist[0],random.choice(funlist),(k+1))
-       time.sleep(random.randint(8,15))
-     time.sleep(random.randint(5,10))
+       time.sleep(random.randint(10,25))
+     time.sleep(random.randint(5,15))
      print('💎'+str(jj+1)+'🔔🔔🔔🔔')
 if __name__ == '__main__':
        start()
