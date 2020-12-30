@@ -46,18 +46,23 @@ def Va2(i,hd,k):
       print(str(e))
 def fistme():
    global result
-   for j in range(len(btlist)):
-       print(f'''===={str(j)}({len(btlist)})''')
-       hd=eval(hdlist[0])
-       hd['Cookie']=btlist[j]
-       Av2(newurllist[0],hd,bdlist[j],j+1)
-       Va2(newurllist[1],hd,j+1)
-       result+='【'+getid2(bdlist[j])[0:4]+'-'+getid1(btlist[j])[0:4]+'】\n'
-       print('count'+str(j+1)+'💎运行完毕')
-       print(result)
-       result=''
-       
-
+   today=datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H:%M", )
+   print('today:',today)
+   if(today[0:2]=='00' and int(today[3:5])<20):
+      tm=19-int(today[3:5])
+      for j in range(len(btlist)):
+         print(f'''===={str(j)}({len(btlist)})''')
+         hd=eval(hdlist[0])
+         hd['Cookie']=btlist[j]
+         Av2(newurllist[0],hd,bdlist[j],j+1)
+         Va2(newurllist[1],hd,j+1)
+         result+='【'+getid2(bdlist[j])[0:4]+'-'+getid1(btlist[j])[0:4]+'】\n'
+         print('count'+str(j+1)+'💎运行完毕')
+         print(result)
+         result=''
+      time.sleep(tm*60)
+      print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
+      	
 def Av(i,hd,k,key=''):
    print(str(k)+'=🔔='*k)
    if(k==6):
@@ -199,24 +204,19 @@ def start():
    watch('ios_newhd',hdlist)
    watch('ios_newbd',bdlist)
    watch('ios_newbt',btlist)
-   today=datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H:%M", )
-   print('today:',today)
    fistme()
-   if(today[0:2]=='00' and int(today[3:5])<15):
-      tm=15-int(today[3:5])
-      time.sleep(tm*60)
-      newloop=2
-      print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
    for mm in range(newloop):
      result=''
      print('第'+str(mm+1)+'🏆次运行开始')
      time.sleep(random.randint(1,4))
+     fistme()
      for j in range(len(btlist)):
        print(f'''===={str(j+1)}({len(btlist)})''')
        result+='['+str(len(btlist))+'-'+str(j+1)+']'
        hd=eval(hdlist[0])
        hd['Cookie']=btlist[j]
        for k in range(len(urllist)):
+         fistme()
          if(k==11 or k==12 or k==14 or k==15):
             continue
          Av(urllist[k],hd,(k+1))
