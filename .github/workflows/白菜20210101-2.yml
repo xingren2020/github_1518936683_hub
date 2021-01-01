@@ -1,4 +1,4 @@
-name: 白菜20210101
+name: 白菜20210101-2
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
         run: pip install -r ./白菜/白菜.txt 
         
       - name: '公众号iosrule' 
-        run: python3 ./白菜/BaiCai1.py 
+        run: python3 ./白菜/BaiCai2.py 
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
