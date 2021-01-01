@@ -27,7 +27,6 @@ taskidlist=[]
 
 
 
-
 def geturl(u,tid):
    u=u[0:u.find('&tid=')+5]+tid+u[u.find('&type'):len(u)]
    return u
@@ -57,46 +56,65 @@ def prehtml(Sg):
 
 
 def Z():
-   userRes = requests.get(urllist[len(urllist)-1],headers=hd,timeout=10).text
-   data=json.loads(prehtml(userRes))
-   data=data['comps'][0]['data']
-   msg=data['user_name']+'|'+str(data['user_info']['earned_coin'])+'|'+str(data['user_info']['check_coin'])+'|'+str(data['user_info']['enabled_coin'])+'|'
-   loger(msg)
-
+   try:
+      userRes = requests.get(urllist[len(urllist)-1],headers=hd,timeout=10).text
+      data=json.loads(prehtml(userRes))
+      data=data['comps'][0]['data']
+      msg=data['user_name']+'|'+str(data['user_info']['earned_coin'])+'|'+str(data['user_info']['check_coin'])+'|'+str(data['user_info']['enabled_coin'])+'|'
+      loger(msg)
+   except Exception as e:
+      print(str(e))
 
 def X1():
-   userRes = requests.post(urllist[5],headers=hd,data=bdlist[3],timeout=10).json()
-
+   try:
+     print('\n X1')
+     userRes = requests.post(urllist[5],headers=hd,data=bdlist[3],timeout=10).json()
+   except Exception as e:
+     print(str(e))
 
 
 
 def X2():
-   userRes = requests.post(urllist[4],headers=hd,data=bdlist[2],timeout=10).json()
-
+   try:
+     print('\n X2')
+     userRes = requests.post(urllist[4],headers=hd,data=bdlist[2],timeout=10).json()
+   except Exception as e:
+      print(str(e))
 
 def X3():
+  try:
+   print('\n X3')
    userRes = requests.get(urllist[3],headers=hd,timeout=10).text
-
+  except Exception as e:
+      print(str(e))
 
 
 def X4():
+  try:
+   print('\n X4')
    userRes = requests.post(urllist[2],headers=hd,data=bdlist[1],timeout=10).json()
    if userRes['err_no']==0:
       print(userRes['err_msg'])
    else:
       print(userRes['err_msg'])
    B4()
-
+  except Exception as e:
+      print(str(e))
 def X5():
+  try:
+   print('\n X5')
    url=urllist[1]
    body=bdlist[0]
    userRes = requests.post(url,headers=hd,data=body,timeout=10).json()
    print(userRes['msg'])
    B4()
-
+  except Exception as e:
+      print(str(e))
    
 
 def C2(taskid,Pkg):
+  try:
+   print('\n C2')
    url=geturl2(urllist[6],taskid,Pkg)
    hd['Referer']=urllist[7]
    userRes= requests.get(url,headers=hd,timeout=10).json()
@@ -105,10 +123,13 @@ def C2(taskid,Pkg):
       print(userRes['msg'])
    else:
       print(userRes['errmsg'])
-   
+  except Exception as e:
+      print(str(e))
    
 
 def AV():
+  try:
+   print('\n AV')
    response = requests.get(urllist[0],headers=hd,timeout=10).text
    
    userRes=json.loads(response)
@@ -158,12 +179,12 @@ def AV():
           elif l['id']=='3':
             if l['current_count']<200:
                D1('100',3,l['current_count'])
-         
- 
+  except Exception as e:
+      print('AV'+str(e))
  
 def B1(tid):
-   global Pkg
-   print('\n获取=======任务:')
+  try:
+   print('\n获取=======B1任务:')
    url=geturl(urllist[8],tid)
    hd['Referer']=urllist[9]+tid
    userRes = requests.get(url,headers=hd,timeout=10).json()
@@ -184,10 +205,13 @@ def B1(tid):
    elif (userRes['errno'] == 0 and userRes['data']['isDone'] ==1):
       print("已完成")
 
-
+  except Exception as e:
+      print('B1'+str(e))
 
 
 def B2(tid):
+  try:
+   print('\n B2')
    url=urllist[10]+tid
    hd['Referer']=urllist[9]+tid
    userRes = requests.get(url,headers=hd,timeout=10).json()
@@ -195,39 +219,50 @@ def B2(tid):
       print(userRes['msg'])
    else:
       print(userRes['errmsg'])
- 
+  except Exception as e:
+      print('B2'+str(e))
  
 
 def B3(taskid,Pkg):
+  try:
+   print('\n B3')
    url=geturl2(urllist[len(urllist)-5],taskid,Pkg)
    userRes = requests.get(url,headers=hd,timeout=10).json()
    if userRes['errno']==0:
       print(userRes['data']['coin'])
    else:
       print(userRes['errmsg'])
-
+  except Exception as e:
+      print(str(e))
 def C1(taskid,Pkg):
+  try:
+   print('\n C1')
    url=geturl2(urllist[len(urllist)-4],taskid,Pkg)
    userRes = requests.get(url,headers=hd,timeout=10).json()
    if userRes['errno']==0:
       print(userRes['msg'])
    else:
       print(userRes['errmsg'])
-   
+  except Exception as e:
+      print(str(e))
 
 def B4():
-   userRes = requests.get(urllist[len(urllist)-4],headers=hd,timeout=10).json()
-   if userRes['errno']==0:
+  try:
+    print('\n B4')
+    userRes = requests.get(urllist[len(urllist)-4],headers=hd,timeout=10).json()
+    if userRes['errno']==0:
       print(userRes['data']['coin'])
-   else:
+    else:
       print(userRes['data']['errmsg'])
-   
+  except Exception as e:
+      print('B4'+str(e))
 
     
 
 
 def D1(cmd,taskid,num):
-   print('+++++'+str(num+1))
+  try:
+   print('+++D1++'+str(num+1))
    url=geturl3(urllist[len(urllist)-3],cmd)
    userRes = requests.post(url,headers=hd,timeout=10).json()
    m=num
@@ -240,13 +275,15 @@ def D1(cmd,taskid,num):
         m+=1
         D2(id,taskid,m)
         time.sleep(30)
-   
+  except Exception as e:
+      print(str(e))
    
    
    
 
 def D2(id,taskid,num):
-   print('\n 任务请求'+str(num+1))
+  try:
+   print('\n D2任务请求'+str(num+1))
    url=urllist[len(urllist)-2]
    body='data='+urllib.parse.quote(json.dumps({"origin_nid":id,"taskid":taskid}))
    hd['Content-Type']= 'application/x-www-form-urlencoded'
@@ -257,7 +294,8 @@ def D2(id,taskid,num):
        print(userRes['data']['197']['tips'])
    else:
        print('no result')
-   
+  except Exception as e:
+      print(str(e))
 
 def watch(flag,list):
    vip=''
@@ -361,7 +399,7 @@ def start():
        BD()
    print('🏆🏆🏆🏆运行完毕')
    print(result)
-   pushmsg('大白菜1',result)
+   pushmsg('一颗好白菜',result)
     
     
    
