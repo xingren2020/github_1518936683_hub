@@ -353,7 +353,7 @@ def start():
        urllist=[]
        btlist=[]
        watch('bd_url',urllist)
-       watch('bd_ck',btlist)
+       watch('bd_ck1',btlist)
        watch('bd_bd',bdlist)
        watch('bd_task',taskidlist)
        taskidlist=s(taskidlist)
@@ -361,7 +361,7 @@ def start():
        BD()
    print('🏆🏆🏆🏆运行完毕')
    print(result)
-   pushmsg('大白菜',result)
+   pushmsg('大白菜1',result)
     
     
    
