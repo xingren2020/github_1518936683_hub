@@ -399,7 +399,7 @@ def start():
        BD()
    print('🏆🏆🏆🏆运行完毕')
    print(result)
-   pushmsg('一颗好白菜',result)
+   pushmsg('一颗好白菜2',result)
     
     
    
