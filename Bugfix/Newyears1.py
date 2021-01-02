@@ -199,7 +199,7 @@ def start():
    global result,hd
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
    newloop=3
-   watch('ios_url',urllist)
+   watch('ios_urlx',urllist)
    watch('ios_newurl',newurllist)
    watch('ios_newhd',hdlist)
    watch('ios_newbd1',bdlist)
