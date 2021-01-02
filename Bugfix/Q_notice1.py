@@ -187,7 +187,7 @@ def start():
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
    watch('ios_wturl',urllist)
    watch('ios_newhd',hdlist)
-   watch('ios_newbt',btlist)
+   watch('ios_newbt1',btlist)
    for j in range(len(btlist)):
        bx=0
        bxfb=0
