@@ -27,6 +27,9 @@ taskidlist=[]
 
 
 
+
+
+
 def geturl(u,tid):
    u=u[0:u.find('&tid=')+5]+tid+u[u.find('&type'):len(u)]
    return u
@@ -39,8 +42,7 @@ def geturl3(u,cmd):
    return u
 
 def BD():
-   AV()
-   X5()
+
    for index in range(len(taskidlist)):
      if index==0:
        X4()
@@ -48,6 +50,8 @@ def BD():
      else:
        B1(taskidlist[index])
      time.sleep(1)
+   AV()
+   X5()
    Z()
 
 def prehtml(Sg):
@@ -60,7 +64,8 @@ def Z():
       userRes = requests.get(urllist[len(urllist)-1],headers=hd,timeout=10).text
       data=json.loads(prehtml(userRes))
       data=data['comps'][0]['data']
-      msg=data['user_name']+'|'+str(data['user_info']['earned_coin'])+'|'+str(data['user_info']['check_coin'])+'|'+str(data['user_info']['enabled_coin'])+'|'
+      #print(data)
+      msg=data['user_name']+'|'+str(data['user_info']['earned_coin'])+'|'+str(data['user_info']['check_coin'])+'|'+str(data['user_info']['enabled_money']/100)+'|'
       loger(msg)
    except Exception as e:
       print(str(e))
@@ -118,7 +123,7 @@ def C2(taskid,Pkg):
    url=geturl2(urllist[6],taskid,Pkg)
    hd['Referer']=urllist[7]
    userRes= requests.get(url,headers=hd,timeout=10).json()
-   print(userRes)
+   #print(userRes)
    if userRes['errno']==0:
       print(userRes['msg'])
    else:
@@ -133,8 +138,6 @@ def AV():
    response = requests.get(urllist[0],headers=hd,timeout=10).text
    
    userRes=json.loads(response)
-   msg=userRes['data']['uname']+'|'
-   loger(msg)
    for im in userRes['data']['comps']:
      if im['id']=='1068':
        time.sleep(1)
@@ -160,7 +163,6 @@ def AV():
        
      if im['id']=='33':
        time.sleep(1)
-       print('taskid',im['data']['taskid'])
        for l in im['data']['tasklist']:
          if l['taskStatus']==0:
            X1()
@@ -226,7 +228,7 @@ def B2(tid):
 def B3(taskid,Pkg):
   try:
    print('\n B3')
-   url=geturl2(urllist[len(urllist)-5],taskid,Pkg)
+   url=geturl2(urllist[len(urllist)-6],taskid,Pkg)
    userRes = requests.get(url,headers=hd,timeout=10).json()
    if userRes['errno']==0:
       print(userRes['data']['coin'])
@@ -237,7 +239,7 @@ def B3(taskid,Pkg):
 def C1(taskid,Pkg):
   try:
    print('\n C1')
-   url=geturl2(urllist[len(urllist)-4],taskid,Pkg)
+   url=geturl2(urllist[len(urllist)-5],taskid,Pkg)
    userRes = requests.get(url,headers=hd,timeout=10).json()
    if userRes['errno']==0:
       print(userRes['msg'])
