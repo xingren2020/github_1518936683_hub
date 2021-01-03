@@ -198,7 +198,7 @@ def clock(func):
 def start():
    global result,hd
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
-   newloop=4
+   newloop=6
    watch('ios_urlx',urllist)
    watch('ios_newurl',newurllist)
    watch('ios_newhd',hdlist)
