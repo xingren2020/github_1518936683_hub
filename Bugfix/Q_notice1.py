@@ -211,7 +211,7 @@ def start():
        result+=getid(btlist[j])+'\n'
        
        print('🏆🏆🏆🏆运行完毕')
-   pushmsg('三库',result)
+   pushmsg('三库-1',result)
      
      
     
