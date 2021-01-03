@@ -21,7 +21,7 @@ jobs:
         run: pip install -r ./Bugfix/requirements.txt 
         
       - name: '公众号iosrule' 
-        run: python3 ./Bugfix/Newyears1.py
+        run: python3 ./Bugfix/Newyears2.py
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
