@@ -48,8 +48,8 @@ def fistme():
    global result
    today=datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H:%M", )
    print('today:',today)
-   if(today[0:2]=='00' and int(today[3:5])<20):
-      tm=19-int(today[3:5])
+   if(today[0:2]=='00' and int(today[3:5])<59):
+      tm=1
       for j in range(len(btlist)):
          print(f'''===={str(j)}({len(btlist)})''')
          hd=eval(hdlist[0])
@@ -198,7 +198,7 @@ def clock(func):
 def start():
    global result,hd
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
-   newloop=5
+   newloop=8
    watch('ios_url',urllist)
    watch('ios_newurl',newurllist)
    watch('ios_newhd',hdlist)
@@ -223,7 +223,7 @@ def start():
        result+=getid1(btlist[j])+'\n'
      print('第'+str(mm+1)+'🏆🏆🏆🏆次运行完毕')
      if mm<2:
-       time.sleep(300)
+       time.sleep(60)
      print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
      
      
