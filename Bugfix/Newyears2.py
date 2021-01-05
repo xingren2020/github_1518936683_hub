@@ -48,8 +48,8 @@ def fistme():
    global result
    today=datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H:%M", )
    print('today:',today)
-   if(today[0:2]=='00' and int(today[3:5])<20):
-      tm=19-int(today[3:5])
+   if(today[0:2]=='00' and int(today[3:5])<59):
+      tm=5
       for j in range(len(btlist)):
          print(f'''===={str(j)}({len(btlist)})''')
          hd=eval(hdlist[0])
