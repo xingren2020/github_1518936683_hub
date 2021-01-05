@@ -198,7 +198,7 @@ def clock(func):
 def start():
    global result,hd
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
-   newloop=6
+   newloop=22
    watch('ios_urlx',urllist)
    watch('ios_newurl',newurllist)
    watch('ios_newhd',hdlist)
@@ -223,7 +223,7 @@ def start():
        result+=getid1(btlist[j])+'\n'
      print('第'+str(mm+1)+'🏆🏆🏆🏆次运行完毕')
      if mm<2:
-       time.sleep(300)
+       time.sleep(60)
      print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
      
      
