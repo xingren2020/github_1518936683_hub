@@ -48,7 +48,7 @@ def watch(flag,list):
        return list
    else:
        print(f'''【{flag}】 is empty,DTask is over.''')
-       exit()
+       #exit()
        
 
 def sam():
