@@ -68,7 +68,7 @@ def watch(flag,list):
    else:
        print(f'''【{flag}】 is empty,DTask is over.''')
        pushmsg('Youku',result)
-       exit()
+       #exit()
        
 
 def pushmsg(title,txt,bflag=1,wflag=1):
