@@ -10,8 +10,7 @@ import io
 import gzip
 from datetime import datetime
 result=''
-djj_bark_cookie=''
-djj_sever_jiang=''
+app='readapp'
 osenviron={}
 
 
@@ -27,7 +26,10 @@ def Av(i,k,key=''):
    try:
      response = requests.post(i,headers=hd,data=json.dumps(key),timeout=10)
      userRes=json.loads(response.text)
-     print(userRes['msg'])
+     if k!=12:
+       print('code:'+str(userRes['code']))
+     if k!=10:
+       print('msg:'+userRes['msg'])
      hand(userRes,k)
         
    except Exception as e:
@@ -40,7 +42,6 @@ def Va(i,k):
     bi = io.BytesIO(bs)
     gf = gzip.GzipFile(fileobj=bi, mode="rb")
     userRes=gf.read().decode('utf-8',errors = 'ignore')
-    print(userRes['msg'])
     hand(userRes,k)
     
    except Exception as e:
@@ -72,12 +73,12 @@ def hand(userRes,k):
    if(k==1):
      msg=f'''{userRes['nick']}|'''
      
-     
-   elif(k==13):
-     msg=f'''{userRes['data']['userBalance']['coin']}|{userRes['data']['userBalance']['cash']}|{userRes['data']['readTime']}'''
+   if(k==3):
+     msg=f'''openNum:{userRes['data']['openNum']}|'''
      
    elif(k==9):
      key=userRes['data']['addShelf']['finished']
+     print('截胡:'+str(key))
      if(not key):
        Av(urllist[9],10)
      else:
@@ -95,14 +96,14 @@ def hand(userRes,k):
       bd={"books":[{"bookid":Lid,"method":"add","resType":1,"offset":0,"updatetime":1606951410,"format":"未知格式","origin":"29342","chapterid":1}]}
 
       Av(urllist[11],12,bd)
-   
-  
+   elif(k==13):
+     msg=f'''{userRes['data']['userBalance']['coin']}|{userRes['data']['userBalance']['cash']}|{userRes['data']['watchVideo']['videoCount']}-20'''
+   elif(k==14):
+     Av(urllist[14]+userRes['data']['inspireVideoAd']['adPositionId'],15)
+     Av(urllist[14]+'204096',15)
+     Av(urllist[14]+'204139',15)
    loger(msg)
-   
-   
-   #if(json.dumps(userRes).find('"msg"')>0):
-          #print(f'''{userRes['msg']}''')
-          #loger(msg)             
+
 def pushmsg(title,txt,bflag=1,wflag=1):
    txt=urllib.parse.quote(txt)
    title=urllib.parse.quote(title)
@@ -159,18 +160,16 @@ def start():
        hd['Cookie']=btlist[j]
        
        for k in range(len(urllist)):
-           if (k>7 and k<12):
+           if (k>8 and k<13) or k==14:
               continue
            if(k==7):
              ll=btlist[j].split(';')
              hd.update({cookie.split('=')[0].strip():cookie.split('=')[-1].strip() for cookie in ll})
-             #print(hd)
            Av(urllist[k],(k+1))
            
        print(str(j)+'💎'*15+'干就完了')
        result+='\n'
-   #if notice('4:00','5:00') or notice('22:00','23:00') or notice('13:00','14:00'):
-   pushmsg('Qread-App',result)
+   pushmsg('QAPP阅读2021118',result)
  
 if __name__ == '__main__':
        start()
