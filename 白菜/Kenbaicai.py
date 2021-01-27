@@ -24,6 +24,7 @@ btlist=[]
 
 
 
+
 def Av(i,hd,k,key=''):
    print(str(k)+'=🔔='*k)
    try:
@@ -60,14 +61,13 @@ def info(userRes):
   except Exception as e:
       print(str(e))
 
-def trump(b,o):
+def trump(b):
   try:
     zs=datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H:%M:%S", )
     print(zs)
+    
     zs=zs.split(':')
-    if o==0:
-      o=60
-    firetm1=o-int(zs[1])
+    firetm1=60-int(zs[1])
     firetm2=60-int(zs[2])
     print(str(firetm1)+':'+str(firetm2))
     if int(zs[0])>b-2 and int(zs[0])<b:
@@ -80,8 +80,8 @@ def trump(b,o):
        elif firetm1<2 and firetm1>=0:
           print('fire_10')
           time.sleep(10)
-       trump(b,o)
-    elif int(zs[0])==b and int(zs[1])==o and int(zs[2])<50:
+       trump(b)
+    elif int(zs[0])==b and int(zs[1])==0 and int(zs[2])<50:
       zs=datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%H:%M:%S", )
       print('go.....'+zs)
       for j in range(len(btlist)):
@@ -92,11 +92,7 @@ def trump(b,o):
              time.sleep(2)
       print('fire5========')
       time.sleep(5)
-      trump(b,o)
-    elif int(zs[0])==b and int(zs[1])<o:
-         print('fire_x10')
-         time.sleep(10)
-         trump(b,o)
+      trump(b)
   except Exception as e:
       print(str(e))
 
@@ -150,9 +146,9 @@ def start():
    watch('bd_ck',btlist)
    watch('bd_hd',hdlist)
    hd=eval(hdlist[0])
-   trump(6,0)
+   trump(6)
    print('🏆🏆🏆🏆运行完毕')
-
+''''''
    
     
     
