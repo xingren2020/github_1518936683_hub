@@ -172,8 +172,8 @@ def start():
        print(f'''===={str(j+1)}''')
        urllist=[]
        btlist=[]
-       watch('wowo_naitang_murl'+str(j),urllist)
-       watch('wowo_naitang_mck'+str(j),btlist)
+       watch('wowo_naitang_urlm'+str(j),urllist)
+       watch('wowo_naitang_ckm'+str(j),btlist)
        hd['Cookie']=btlist[0]
        for k in range(len(urllist)):
           if k==3:
