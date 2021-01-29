@@ -14,20 +14,25 @@ osenviron={}
 msg=''
 hd={}
 urllist=[]
+urlxlist=[]
+bdxlist=[]
 hdlist=[]
 btlist=[]
 redtm=0
 bdlist=[]
 
+myid='1976840631'
 
 
 
-
-
-
+def ufo(st):
+   return st.replace('1986045594',myid)
+   
+   
 def Av(i,hd,k,key='',flag=0):
    print(str(k)+'=🔔='*k)
    try:
+      i=ufo(i)
       if flag==0:
          response = requests.get(f'''{i}{key}''',headers=hd,timeout=10)
       else:
@@ -35,7 +40,6 @@ def Av(i,hd,k,key='',flag=0):
         
          
       userRes=json.loads(response.text)
-      #print(userRes)
       hand(userRes,k)
    except Exception as e:
       print(str(e))
@@ -66,35 +70,49 @@ def watch(flag,list):
        exit()
 def hand(userRes,k):
    msg=''
+   global redtm
    try:
-       if k==1:
+       if(k==1):
+          msg+=f'''{userRes['result']['money']/100}RMB|{userRes['result']['points']}|'''
+          #tmp=userRes['result']['points_gift_list'][0]['limit_desc']
+          msg+=tmp
+          print(msg)
+       elif(k==2):
           msg+=f'''{userRes['result']['new_info']['repeat_count']}|{userRes['result']['new_info']['progress']}-{userRes['result']['new_info']['target']}|'''
-          print('111',msg)
+          print(msg)
           loopt=userRes['result']['new_info']['target']-userRes['result']['new_info']['progress']
           if loopt>0 and loopt<300:
             time.sleep(loopt)
-            Av(urllist[1],hd,(2))
-          elif loopt<0:
-             Av(urllist[1],hd,(2))
+            Av(urllist[2],hd,(3))
           else:
             time.sleep(6)
-            Av(urllist[0],hd,(1))
-       elif(k==2):
-       	  if userRes['result']['ret_code']==0:
-              msg+=f'''{userRes['result']['new_info']['repeat_count']}|{userRes['result']['new_info']['progress']}-{userRes['result']['new_info']['target']}|'''
-              print('2222',msg)
-              loopt=userRes['result']['new_info']['target']-userRes['result']['new_info']['progress']
-              time.sleep(3)
-              Av(urllist[0],hd,(1))
-          else:
-              time.sleep(20)
-              Av(urllist[0],hd,(1))
-  
+            Av(urllist[1],hd,(2))
+       elif(k==3):
+          msg+=f'''{userRes['result']['new_info']['repeat_count']}|{userRes['result']['new_info']['progress']}-{userRes['result']['new_info']['target']}|'''
+          print('回归2'+msg)
+          loopt=userRes['result']['new_info']['target']-userRes['result']['new_info']['progress']
+          time.sleep(3)
+          Av(urllist[1],hd,(2))
+          
+         
+       elif(k==4):
+          for it in userRes['tasks']:
+             tmp=it['name']+'-'+str(it['status'])
+             print(tmp)
+             if it['status']==1:
+                url=urllist[3][0:urllist[3].find('name=')+5]+it['name']+urllist[3][urllist[3].find('&b'):len(urllist[3])]
+                print(url)
+                Av(url,hd,(k+1))
+                time.sleep(1)
+             
+       loger(msg)
    except Exception as e:
       print(str(e))
       
       
- 
+      
+
+
 
 
 
@@ -146,7 +164,7 @@ def clock(func):
     
 @clock
 def start():
-   global result,hd,btlist,urllist,urlxlist,hdlist
+   global result,hd,btlist,urllist,urlxlist,bdxlist,hdlist
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
    watch('wowo_naitang_hd',hdlist)
    hd=eval(hdlist[0])
@@ -154,14 +172,12 @@ def start():
        print(f'''===={str(j+1)}''')
        urllist=[]
        btlist=[]
-       watch('wowo_naitang_urlm'+str(j),urllist)
-       watch('wowo_naitang_ckm'+str(j),btlist)
+       watch('wowo_naitang_murl'+str(j),urllist)
+       watch('wowo_naitang_mck'+str(j),btlist)
        hd['Cookie']=btlist[0]
-
-       
        for k in range(len(urllist)):
-          if k==1:
-             continue
+          if k==3:
+              continue
           Av(urllist[k],hd,(k+1))
    print('🏆🏆🏆🏆运行完毕')
     
