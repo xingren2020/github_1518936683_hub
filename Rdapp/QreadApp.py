@@ -179,7 +179,7 @@ def start():
              hd.update({cookie.split('=')[0].strip():cookie.split('=')[-1].strip() for cookie in ll})
              #print(hd)
            Av(urllist[k],(k+1))
-           
+           time.sleep(2)
        print(str(j)+'💎'*15+'干就完了')
        result+='\n'
    pushmsg('三库-QRAPP',result)
