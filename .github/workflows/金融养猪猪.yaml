@@ -30,7 +30,7 @@ jobs:
                   npm install
             - name: "运行 【金融养猪猪】"
               run: |
-                  node Ponysitters_Club_Season.js
+                  node ./dadonggua/Ponysitters_Club_Season.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   SYNCURL: https://gitee.com/lxk0301/jd_scripts/raw/master/jd_pigPet.js
