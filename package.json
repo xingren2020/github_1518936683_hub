@@ -1,24 +1,24 @@
 {
-    "name": "dadonggua",
+    "name": "1518936683",
     "version": "1.0.0",
     "description": "sign everything",
-    "main": "Ponysitters_Club_Season.js",
+    "main": "dadonggua/Ponysitters_Club_Season.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/canghaiyishengxiao2021/dadonggua.git"
+        "url": "git+https://github.com/1518936683/hub.git"
     },
     "keywords": [
         "sign"
     ],
-    "author": "canghaiyishengxiao2021",
+    "author": "1518936683",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/canghaiyishengxiao2021/dadonggua/issues"
+        "url": "https://github.com/1518936683/hub/issues"
     },
-    "homepage": "https://github.com/canghaiyishengxiao2021/dadonggua#readme",
+    "homepage": "https://github.com/1518936683/hub#readme",
     "dependencies": {
         "download": "^8.0.0",
         "request": "^2.88.2",
