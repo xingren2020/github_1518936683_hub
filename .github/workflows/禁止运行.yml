@@ -25,7 +25,7 @@ jobs:
                   npm install
             - name: "运行 【禁止运行】"
               run: |
-                  node cspig.js
+                  node ./dadonggua/cspig.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH }}
