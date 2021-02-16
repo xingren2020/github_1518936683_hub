@@ -47,8 +47,10 @@ let CookieJDs = [];
  let hcodestr="";
 let shareCodes=[];
 async function downFile() {
-   
+    console.log('下载文件');
     await download(SyncUrl, "./",{filename:'temp.js'});
+ 
+  console.log('下载完毕');
 }
 
 async function changeFiele(content, cookie) {
@@ -58,7 +60,7 @@ async function changeFiele(content, cookie) {
     //await fs.writeFileSync("./Ponysitters_Club_Season.js", newContent, "utf8");
      
 newContent = newContent.replace(/require\('.\/(\w+)ShareCodes.js\'\)/g, JSON.stringify(shareCodes)); 
-
+ console.log(newContent);
 
     
      await fs.writeFileSync( './temp.js', newContent, 'utf8')
