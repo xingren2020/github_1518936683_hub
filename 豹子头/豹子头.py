@@ -78,7 +78,7 @@ def watch(flag,list):
        return list
    else:
        print(f'''【{flag}】 is empty,DTask is over.''')
-      # exit()
+      #exit()
 
 def clock(func):
     def clocked(*args, **kwargs):
@@ -97,47 +97,44 @@ def clock(func):
 def start():
   global result,hd
   try:
-   print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
-   watch('JQB_666_url',urllist)
-   watch('JQB_666_hd',hdlist)
-   watch('JQB_666_bd0',bd0list)
-   watch('JQB_666_bd1',bd1list)
-   watch('JQB_666_bd2',bd2list)
-   watch('JQB_666_bd3',bd3list)
-   if len(urllist)==0 or len(hdlist)==0:
-      print('data is null.......')
-      exit()
-   
-   
-   
-      hd=eval(hdlist[c])
+      print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
+      watch('JQB_666_url',urllist)
+      watch('JQB_666_hd',hdlist)
+      watch('JQB_666_bd0',bd0list)
+      watch('JQB_666_bd1',bd1list)
+      watch('JQB_666_bd2',bd2list)
+      watch('JQB_666_bd3',bd3list)
+      if len(urllist)==0 or len(hdlist)==0:
+        print('data is null.......')
+        exit()
+      hd=eval(hdlist[0])
       print('111')
       for i in range(1,len(bd0list)):
         if i==0:
-        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        	Av(urllist[i],hd,(i+1),1,bd0list[i])
         if i>0:
-          Av(urllist[1],hd,(i+1),1,bdlist[i])
+          Av(urllist[1],hd,(i+1),1,bd0list[i])
         time.sleep(random.randint(15,60))
       print('222')
       for i in range(1,len(bd1list)):
         if i==0:
-        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        	Av(urllist[i],hd,(i+1),1,bd1list[i])
         if i>0:
-          Av(urllist[1],hd,(i+1),1,bdlist[i])
+          Av(urllist[1],hd,(i+1),1,bd1list[i])
         time.sleep(random.randint(15,60))
       print('333')
       for i in range(1,len(bd2list)):
         if i==0:
-        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        	Av(urllist[i],hd,(i+1),1,bd2list[i])
         if i>0:
-          Av(urllist[1],hd,(i+1),1,bdlist[i])
+          Av(urllist[1],hd,(i+1),1,bd2list[i])
         time.sleep(random.randint(15,60))
-      print('4444')
+      print('444')
       for i in range(1,len(bd3list)):
         if i==0:
-        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        	Av(urllist[i],hd,(i+1),1,bd3list[i])
         if i>0:
-          Av(urllist[1],hd,(i+1),1,bdlist[i])
+          Av(urllist[1],hd,(i+1),1,bd3list[i])
         time.sleep(random.randint(15,60))
 
 
