@@ -1,0 +1,31 @@
+name: 豹子头
+
+on:
+  schedule:
+    - cron: '*/30 0-5 * * *'
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+         
+      - name: 'Install requirements'
+        run: pip install -r ./Car/requirements.txt 
+        
+      - name: '公众号iosrule' 
+        run: python3 ./豹子头/豹子头.py
+        env:
+            JQB_666_url: ${{ secrets.JQB_666_url }}
+            JQB_666_hd: ${{ secrets.JQB_666_hd }}
+            JQB_666_bd0: ${{ secrets.JQB_666_bd0 }}
+            JQB_666_bd1: ${{ secrets.JQB_666_bd1 }}
+            JQB_666_bd2: ${{ secrets.JQB_666_bd2 }}
+            JQB_666_bd3: ${{ secrets.JQB_666_bd3 }}
