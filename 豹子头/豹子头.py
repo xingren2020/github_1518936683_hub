@@ -18,8 +18,10 @@ hd={}
 urllist=[]
 hdlist=[]
 btlist=[]
-bdlist=[]
-
+bd0list=[]
+bd1list=[]
+bd2list=[]
+bd3list=[]
 
 djj_bark_cookie=''
 djj_sever_jiang=''
@@ -93,23 +95,53 @@ def clock(func):
 
 @clock
 def start():
-  global result,hd,bdlist,urllist,hdlist
+  global result,hd
   try:
    print('Localtime',datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
    watch('JQB_666_url',urllist)
    watch('JQB_666_hd',hdlist)
-   watch('JQB_666_bd0',bdlist)
+   watch('JQB_666_bd0',bd0list)
+   watch('JQB_666_bd1',bd1list)
+   watch('JQB_666_bd2',bd2list)
+   watch('JQB_666_bd3',bd3list)
    if len(urllist)==0 or len(hdlist)==0:
       print('data is null.......')
       exit()
    
-   for loop in range(1):
-    for c in range(len(hdlist)):
+   
+   
       hd=eval(hdlist[c])
-      print('【'+str(loop+1)+'】C:'+str(c+1))
-      for i in range(lebn(bdlist)):
-        Av(urllist[i],hd,(i+1),1,bdlist[i])
+      print('111')
+      for i in range(1,len(bd0list)):
+        if i==0:
+        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        if i>0:
+          Av(urllist[1],hd,(i+1),1,bdlist[i])
         time.sleep(random.randint(15,60))
+      print('222')
+      for i in range(1,len(bd1list)):
+        if i==0:
+        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        if i>0:
+          Av(urllist[1],hd,(i+1),1,bdlist[i])
+        time.sleep(random.randint(15,60))
+      print('333')
+      for i in range(1,len(bd2list)):
+        if i==0:
+        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        if i>0:
+          Av(urllist[1],hd,(i+1),1,bdlist[i])
+        time.sleep(random.randint(15,60))
+      print('4444')
+      for i in range(1,len(bd3list)):
+        if i==0:
+        	Av(urllist[i],hd,(i+1),1,bdlist[i])
+        if i>0:
+          Av(urllist[1],hd,(i+1),1,bdlist[i])
+        time.sleep(random.randint(15,60))
+
+
+
 
   except Exception as e:
       print(str(e))
