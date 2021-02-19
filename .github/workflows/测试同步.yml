@@ -6,7 +6,7 @@ on:
     #         - main
     schedule:
         - cron: "10 16 * * *"
-    workflow_dispatch
+    workflow_dispatch:
 jobs:
     build:
     runs-on: ubuntu-latest
