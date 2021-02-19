@@ -15,7 +15,7 @@ jobs:
        uses: actions/checkout@v2
      - name: Github进行fork后如何与原仓库同步
        run: |
-           git remote add upstream git https://github.com/canghaiyishengxiao2021/dadonggua.git
+           git remote add upstream https://github.com/canghaiyishengxiao2021/dadonggua.git
            git remote -v
            git fetch upstream
            git checkout main
